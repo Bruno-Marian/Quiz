@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./../controller/quiz.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+
+    <br><br>
+    <button>Reiniciar quiz!</button>
+    <button onclick="nextPergunta()">Proxima questão</button>
+    <script>
+        var acerto = 0
+        var perguntaIndex = 0
+        var isRespodido = false
+
+        addPergunta()
+        function addPergunta() {
+            isRespodido = false
+            html = setaPerguntaQuiz(perguntaIndex)
+            document.getElementById("box").innerHTML = html
+        }
+
+        function isCorreto(id){
+            console.log(id)
+            var botao = document.getElementById(id)
+            if (isRespodido){
+                alert("Você já respondeu esta questão!")
+                return
+            }
+
+            isRespodido = true
+            perguntaIndex ++
+
+            if (gabarito.indexOf(botao.innerText.split(")")[1])){
+                botao.style.backgroundColor = "Green"
+                alert("Você acertou!")
+                acerto ++
+            }else {
+                botao.style.backgroundColor = "Red"
+                alert("Você errou!")
+            }
+        }
+
+        function nextPergunta() {
+            if (isRespodido){
+                console.log("aaaa")
+                addPergunta()
+            } else {
+                alert("Você ainda não respondeu!")
+            }
+        }
+    </script>
+</body>
+</html>
