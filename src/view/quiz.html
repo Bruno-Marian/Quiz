@@ -11,7 +11,7 @@
 
     <br><br>
     <button>Reiniciar quiz!</button>
-    <button onclick="nextPergunta()">Proxima questão</button>
+    <button id="next" onclick="nextPergunta()">Proxima questão</button>
     <script>
         var acerto = 0
         var perguntaIndex = 0
@@ -34,8 +34,9 @@
 
             isRespodido = true
             perguntaIndex ++
-
-            if (gabarito.indexOf(botao.innerText.split(")")[1])){
+            console.log(botao.innerText.split(") ")[1])
+            console.log(gabarito.indexOf(botao.innerText.split(") ")[1]))
+            if (gabarito.indexOf(botao.innerText.split(") ")[1]) != -1){
                 botao.style.backgroundColor = "Green"
                 alert("Você acertou!")
                 acerto ++
@@ -46,9 +47,19 @@
         }
 
         function nextPergunta() {
+            var botao = document.getElementById("next")
+            if (botao.innerText == "Finalizar"){
+                alert(`Você acertou ${acerto} questões`)
+                return
+            }
+
             if (isRespodido){
-                console.log("aaaa")
                 addPergunta()
+                
+                if (perguntaIndex == 1){
+                    botao.innerText = "Finalizar"
+                }
+
             } else {
                 alert("Você ainda não respondeu!")
             }

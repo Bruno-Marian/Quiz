@@ -21,7 +21,7 @@ function setaPerguntaQuiz(perguntaIndex){
 const arrayAlfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 
-const gabarito = ['18', "61"]
+const gabarito = ['18', '61', "verdadeiro"]
 
 const pergunta1 = ["Qual a sua idade?"]
 const pergunta2 = ["Qual a idade dos seus pais?"]
