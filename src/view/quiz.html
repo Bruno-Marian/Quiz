@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./../controller/quiz.js"></script>
+    <link rel="stylesheet" href="./../style/quiz.css">
     <title>Document</title>
 </head>
 <body>
     <div id="box"></div>
 
-    <br><br>
-    <button>Reiniciar quiz!</button>
-    <button id="next" onclick="nextPergunta()">Proxima questão</button>
+    <div>
+        <button>Reiniciar quiz!</button>
+        <button id="next" onclick="nextPergunta()">Proxima questão</button>
+    </div>
     <script>
         var acerto = 0
         var perguntaIndex = 0
