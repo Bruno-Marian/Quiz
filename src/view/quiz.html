@@ -8,11 +8,13 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>
+        Quiz de Comunicações
+    </h1>
     <div id="box"></div>
-
-    <div>
-        <button>Reiniciar quiz!</button>
-        <button id="next" onclick="nextPergunta()">Proxima questão</button>
+    <div class="buttons">
+        <button onclick="resetPergunta()" class="buttonReiniciar">Reiniciar quiz!</button>
+        <button id="next" onclick="nextPergunta()" class="buttonNext">Proxima questão</button>
     </div>
     <script>
         var acerto = 0
@@ -40,11 +42,9 @@
             console.log(gabarito.indexOf(botao.innerText.split(") ")[1]))
             if (gabarito.indexOf(botao.innerText.split(") ")[1]) != -1){
                 botao.style.backgroundColor = "Green"
-                alert("Você acertou!")
                 acerto ++
             }else {
                 botao.style.backgroundColor = "Red"
-                alert("Você errou!")
             }
         }
 
@@ -58,13 +58,22 @@
             if (isRespodido){
                 addPergunta()
                 
-                if (perguntaIndex == 1){
+                if (perguntaIndex == 9){
                     botao.innerText = "Finalizar"
                 }
 
             } else {
                 alert("Você ainda não respondeu!")
             }
+        }
+
+        function resetPergunta(){
+            acerto = 0
+            perguntaIndex = 0
+            isRespodido = false
+
+            addPergunta();
+
         }
     </script>
 </body>
